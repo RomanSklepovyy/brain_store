@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
-import Header from "./components/Header/Header";
 import {Col, Container, Row} from "reactstrap";
 import {Route} from "react-router-dom";
-import MainPage from "./components/MainPage/MainPage";
 import Cart from "./components/Cart/Cart";
 import Wanted from "./components/Wanted/Wanted";
 import MainPageContainer from "./components/MainPage/MainPageContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 function App() {
@@ -16,7 +14,7 @@ function App() {
           <Row>
               <Col sm="12" md={{ size: 10, offset: 1 }}>
 
-                  <Header />
+                  <HeaderContainer />
 
                   <Route exact path='/' render={() => <MainPageContainer />}/>
                   <Route path='/cart' render={() => <Cart />}/>

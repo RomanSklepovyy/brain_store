@@ -1,6 +1,6 @@
 import {takeLatest, call, put, all, fork} from 'redux-saga/effects';
 import * as types from './productsActionTypes';
-import getBooksByCategory from './../../lib/books';
+import getBooksByCategory from '../../lib/booksByCategory';
 import {getProductsCategoryAction} from "./productsActions";
 import {GET_PRODUCTS_BY_CATEGORY_SUCCESS} from "./productsActionTypes";
 
