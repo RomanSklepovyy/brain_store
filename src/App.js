@@ -7,6 +7,7 @@ import {Route} from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
 import Cart from "./components/Cart/Cart";
 import Wanted from "./components/Wanted/Wanted";
+import MainPageContainer from "./components/MainPage/MainPageContainer";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
                   <Header />
 
-                  <Route exact path='/' render={() => <MainPage />}/>
+                  <Route exact path='/' render={() => <MainPageContainer />}/>
                   <Route path='/cart' render={() => <Cart />}/>
                   <Route path='/wanted' render={() => <Wanted />}/>
 
