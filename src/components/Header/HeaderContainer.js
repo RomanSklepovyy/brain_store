@@ -2,7 +2,7 @@ import React from 'react';
 import {getBooksBySearch, getUpdateSearchFieldAction} from "../../redux/header/headerActions";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {getProductsBySearchQuery} from "../../redux/products/productsActions";
+import {getProductsBySearchQueryAction} from "../../redux/products/productsActions";
 
 let mapStateToProps = state => {
     return {
@@ -13,7 +13,7 @@ let mapStateToProps = state => {
 let mapDispatchToProps = dispatch => {
     return {
         updateSearchField: text => dispatch(getUpdateSearchFieldAction(text)),
-        getProductsBySearchQuery: (text) => dispatch(getProductsBySearchQuery(text))
+        getProductsBySearchQuery: (text) => dispatch(getProductsBySearchQueryAction(text))
     }
 };
 

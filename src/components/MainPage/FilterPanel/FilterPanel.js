@@ -4,7 +4,7 @@ import {Button} from "reactstrap";
 const FilterPanel = (props) => {
 
     const onClick = () => {
-        props.getProducts('jewelery');
+        props.getProducts('math');
     };
 
     return (
