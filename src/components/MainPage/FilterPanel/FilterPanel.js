@@ -5,7 +5,7 @@ const FilterPanel = (props) => {
 
     const onClick = () => {
         props.getProducts('jewelery');
-    }
+    };
 
     return (
         <div className="mr-2 bg-light w-100 h-100">

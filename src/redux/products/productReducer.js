@@ -10,15 +10,18 @@ const productReducer = (state = initialState, action) => {
         case types.GET_PRODUCTS_BY_CATEGORY_SUCCESS: {
             return {
                 ...state,
-                products: {
-                    ...state.products,
-                    [action.categoryName] : action.result
+                products: action.result.items
                 }
+            }
+        case types.GET_PRODUCTS_BY_SEARCH_QUERY_SUCCESS: {
+            return {
+                ...state,
+                products: action.result.items
             }
         }
         default:
             return state;
     }
-}
+};
 
 export default productReducer;

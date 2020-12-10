@@ -1,8 +1,8 @@
-import {takeLatest, call, put, all, fork} from 'redux-saga/effects';
+import {takeLatest, call, put, all} from 'redux-saga/effects';
 import * as types from './productsActionTypes';
 import getBooksByCategory from '../../lib/booksByCategory';
-import {getProductsCategoryAction} from "./productsActions";
 import {GET_PRODUCTS_BY_CATEGORY_SUCCESS} from "./productsActionTypes";
+import getBooksBySearchQuery from "../../lib/booksBySearchQuery";
 
 function *getProductsByCategory(action) {
     try {
@@ -13,8 +13,20 @@ function *getProductsByCategory(action) {
     }
 }
 
-function *actionWatcher() {
-    yield takeLatest(types.GET_PRODUCTS_BY_CATEGORY_REQUEST, getProductsByCategory);
+function *getProductsBySearchQuery(action) {
+    try {
+        const result = yield call(getBooksBySearchQuery, action.payload);
+        yield put({type: types.GET_PRODUCTS_BY_SEARCH_QUERY_SUCCESS, result: result});
+    } catch (e) {
+        console.log(e);
+    }
 }
 
-export default actionWatcher;
+function *watchAll() {
+    yield all([
+        yield takeLatest(types.GET_PRODUCTS_BY_CATEGORY_REQUEST, getProductsByCategory),
+        yield takeLatest(types.GET_PRODUCTS_BY_SEARCH_QUERY_REQUEST, getProductsBySearchQuery)
+    ]);
+}
+
+export default watchAll;

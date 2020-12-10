@@ -12,7 +12,7 @@ function App() {
   return (
       <Container>
           <Row>
-              <Col sm="12" md={{ size: 10, offset: 1 }}>
+              <Col>
 
                   <HeaderContainer />
 
@@ -22,7 +22,6 @@ function App() {
 
               </Col>
           </Row>
-
       </Container>
   );
 }

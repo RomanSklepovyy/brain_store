@@ -1,19 +1,21 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {getProductsCategoryAction} from "../../redux/products/productsActions";
+import {getProductsByCategoryAction} from "../../redux/products/productsActions";
 import MainPage from "./MainPage";
 
 let mapStateToProps = (state) => {
-    return null;
-}
+    return {
+        products: state.products.products
+    };
+};
 let mapDispatchToProps = (dispatch) => {
     return {
-        getProducts: (category) => {
-            dispatch(getProductsCategoryAction(category));
+        getProductsByCategory: (category) => {
+            dispatch(getProductsByCategoryAction(category));
         }
     }
-}
+};
 
-const MainPageContainer = connect(null, mapDispatchToProps)(MainPage);
+const MainPageContainer = connect(mapStateToProps, mapDispatchToProps)(MainPage);
 
 export default MainPageContainer;
