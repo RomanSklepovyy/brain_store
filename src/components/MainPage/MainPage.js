@@ -13,7 +13,7 @@ const MainPage = (props) => (
                     <FilterPanel getProducts = {props.getProductsByCategory}/>
                 </Col>
                 <Col className='mt-2 p-0 pl-2' xs="9" style={{height: "90vh", maxHeight: "90vh"}}>
-                    <BookList books = {props.products}/>
+                    <BookList books = {props.books}/>
                 </Col>
             </Row>
         </Container>

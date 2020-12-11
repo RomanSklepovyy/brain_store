@@ -5,7 +5,7 @@ import MainPage from "./MainPage";
 
 let mapStateToProps = (state) => {
     return {
-        products: state.products.products
+        books: state.products.productsData.books
     };
 };
 let mapDispatchToProps = (dispatch) => {

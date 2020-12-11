@@ -1,7 +1,10 @@
 import * as types from './productsActionTypes';
 
 const initialState = {
-    productsData: [],
+    productsData: {
+        books: [],
+        availableBooks: 0
+    },
     processing: false
 };
 
