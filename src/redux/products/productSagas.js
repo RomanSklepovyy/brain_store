@@ -1,13 +1,12 @@
 import {takeLatest, call, put, all} from 'redux-saga/effects';
 import * as types from './productsActionTypes';
 import getBooksByCategory from '../../lib/booksByCategory';
-import {GET_PRODUCTS_BY_CATEGORY_SUCCESS} from "./productsActionTypes";
 import getBooksBySearchQuery from "../../lib/booksBySearchQuery";
 
 function *getProductsByCategory(action) {
     try {
         const result = yield call(getBooksByCategory, action.payload);
-        yield put({type: GET_PRODUCTS_BY_CATEGORY_SUCCESS, categoryName : action.payload, result: result});
+        yield put({type: types.GET_PRODUCTS_BY_CATEGORY_SUCCESS, categoryName : action.payload, result: result});
     } catch (e) {
         console.log(e);
     }

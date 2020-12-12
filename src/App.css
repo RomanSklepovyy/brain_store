@@ -4,15 +4,21 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+    /*-webkit-border-radius: 10px;*/
+    /*border-radius: 10px;*/
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgb(108,117,125);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: rgb(108, 117, 125);
+    -webkit-box-shadow: inset 0 0 3px rgba(134, 128, 128, 0.5);
+    -webkit-background-size: 0;
 }
+
+.non-scroll::-webkit-scrollbar {
+    width: 0;
+}
+

@@ -32,6 +32,7 @@ const productReducer = (state = initialState, action) => {
 const createBooksObjectData = (data) => {
 
     try {
+
         return {
             //books remain in server
             availableBooks: data.totalItems - data.items.length,
@@ -48,7 +49,7 @@ const createBooksObjectData = (data) => {
 
                 let saleDetails;
 
-                if (saleability === "FOR_SALE") {
+                if ((saleability !== "NOT_FOR_SALE") && (saleability !== "FREE")) {
                     saleDetails = {
                         price: item.saleInfo.listPrice.amount,
                         currencyCode: item.saleInfo.listPrice.currencyCode,
