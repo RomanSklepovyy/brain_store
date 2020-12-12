@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import {Badge, FormGroup, Input, Navbar, NavbarBrand} from 'reactstrap';
+import {Badge, Input, Navbar, NavbarBrand} from 'reactstrap';
 import {Link} from "react-router-dom";
+import {Cart, BookmarkHeart} from 'react-bootstrap-icons';
 
 
 const Header = (props) => {
@@ -15,7 +16,7 @@ const Header = (props) => {
         if (event.keyCode === 13) {
             props.getProductsBySearchQuery(event.target.value)
         }
-    }
+    };
 
 
     return (
@@ -31,10 +32,10 @@ const Header = (props) => {
                 </Input>
 
             <Link to="/wanted">
-                <button type="button" className="btn btn-dark mr-2 ml-2">Wanted</button>
+                <button type="button" className="btn btn-dark ml-2 mr-2 d-inline-flex"> Wanted <BookmarkHeart size={25} className="ml-2"/></button>
             </Link>
-            <Link to="/cart">
-                <button type="button" className="btn btn-dark mr-2">Cart</button>
+            <Link className="d-inline-flex" to="/cart">
+                <button type="button" className="btn btn-dark mr-2 d-inline-flex"> Cart <Cart size={25} className="ml-2"/></button>
             </Link>
         </Navbar>
     </div>
