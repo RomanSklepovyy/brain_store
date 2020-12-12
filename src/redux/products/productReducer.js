@@ -32,13 +32,17 @@ const productReducer = (state = initialState, action) => {
 const createBooksObjectData = (data) => {
 
     try {
-        let newDataObject = {
+        return {
             //books remain in server
             availableBooks: data.totalItems - data.items.length,
+
+            //books array
             books: data.items.map(item => {
 
-                let {title, subtitle, authors, publisher, publishedDate, description, categories,
-                    averageRating, ratingsCount, language} = item.volumeInfo;
+                let {
+                    title, subtitle, authors, publisher, publishedDate, description, categories,
+                    averageRating, ratingsCount, language
+                } = item.volumeInfo;
 
                 let {country, saleability} = item.saleInfo;
 
@@ -46,9 +50,9 @@ const createBooksObjectData = (data) => {
 
                 if (saleability === "FOR_SALE") {
                     saleDetails = {
-                        price : item.saleInfo.listPrice.amount,
-                        currencyCode : item.saleInfo.listPrice.currencyCode,
-                        buyLink : item.saleInfo.buyLink
+                        price: item.saleInfo.listPrice.amount,
+                        currencyCode: item.saleInfo.listPrice.currencyCode,
+                        buyLink: item.saleInfo.buyLink
                     }
                 }
 
@@ -73,8 +77,6 @@ const createBooksObjectData = (data) => {
                 }
             })
         };
-
-        return newDataObject;
 
     } catch (e) {
         console.log('Error with creating books object data! \n', e);

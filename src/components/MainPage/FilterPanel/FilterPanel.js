@@ -4,11 +4,11 @@ import {Button} from "reactstrap";
 const FilterPanel = (props) => {
 
     const onClick = () => {
-        props.getProducts('math');
+        props.getProducts('france');
     };
 
     return (
-        <div className="mr-2 bg-light w-100 h-100">
+        <div className="mr-2 bg-light w-100 h-100 rounded">
             <Button onClick={onClick}> GET</Button>
         </div>
     )

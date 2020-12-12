@@ -1,5 +1,4 @@
 import React from "react";
-import {Button, Card, CardBody, CardImg, CardSubtitle, CardTitle} from "reactstrap";
 
 const bookCard = ({books}) => {
 
@@ -12,30 +11,41 @@ const bookCard = ({books}) => {
             )
         } else {
             return (
-                <div>
                     <p>Unknown authors</p>
-                </div>
             )
         }
     };
 
     return (
-        <div className="row mb-2">
-            {books.map(({title, authors, normalImage, categories}) => (
-                <div className="col-md-4">
-                    <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-200 position-relative">
-                        <div className="col p-4 d-flex flex-column position-static">
-                            <strong className="d-inline-block mb-2 text-primary">{categories ? categories[0] : ''}</strong>
-                            <h3 className="mb-0">{title}</h3>
-                            <div className="mb-1 text-muted">{getAuthors(authors)}</div>
-                            <a href="#" className="stretched-link">Continue reading</a>
+        // <div className="d-flex justify-content-center flex-row">
+        //     {books.map(({title, authors, normalImage, categories}) => (
+        //         <div className="d-flex flex-row">
+        //             <div className="p-4 d-flex flex-column position-static">
+        //                 <strong className="d-inline-block mb-2 text-primary">{categories ? categories[0] : ''}</strong>
+        //                 <h5 className="mb-0">{title}</h5>
+        //                 <div className="mb-1 text-muted">{getAuthors(authors)}</div>
+        //             </div>
+        //             <div className="d-none d-lg-block">
+        //                 <img className="bd-placeholder-img"
+        //                      src={normalImage}/>
+        //             </div>
+        //         </div>))}
+        // </div>)
+        <div className="container-fluid">
+            <div className="row">
+                {books.map(({title, authors, normalImage, categories}) => (
+                    <div className="col-4 p-2">
+                        <div style={{height: '200px'}} className="border rounded overflow-hidden shadow-sm d-flex flex-row">
+                            <div className="p-4 d-flex flex-column position-static">
+                                <strong className="d-inline-block mb-2 text-primary">{categories ? categories[0] : ''}</strong>
+                                <h6 className="mb-1">{title}</h6>
+                            </div>
+                            <div className="d-block">
+                                <img className="bd-placeholder-img h-100" src={normalImage}/>
+                            </div>
                         </div>
-                        <div className="col-auto d-none d-lg-block">
-                            <img className="bd-placeholder-img"
-                                 src={normalImage}/>
-                        </div>
-                    </div>
-                </div>))}
+                    </div>))}
+            </div>
         </div>)
 };
 

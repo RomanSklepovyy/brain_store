@@ -4,7 +4,7 @@ import BookCard from "./BookCard/BookCard";
 
 const BookList = (props) => {
     return (
-        <div className="mr-2 bg-light w-100 h-100 overflow-auto">
+        <div className="mr-2 bg-light w-100 h-100 overflow-auto rounded p-4">
             <BookCard books={props.books}/>
 
             {/*<div className="row mb-2">*/}
