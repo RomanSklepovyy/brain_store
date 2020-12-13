@@ -1,26 +1,13 @@
 import React from "react";
-import {Badge, Button} from "reactstrap";
+import Categories from "./Categories/Categories";
+import Options from "./Options/Options";
 
-const FilterPanel = ({filterData, updateOrderBy, updatePrintType, updateEbookType}) => {
-
-    console.log(filterData);
+const FilterPanel = (props) => {
 
     return (
         <div className="mr-2 bg-light w-100 h-100 rounded ">
-            <div className="flex-wrap overflow-auto non-scroll" style={{maxHeight: "70vh",
-                msFlexDirection: "row",
-                msFlexWrap: "wrap",
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap"}}>
-                {filterData.categories.map((category, index) => (
-                    <div className="pl-1" key={index}>
-                        <Badge color="secondary" pill className="text-lowercase">
-                            {category}
-                        </Badge>
-                    </div>
-                ))}
-            </div>
+            <Options props/>
+            <Categories categories = {props.filterData.categories}/>
         </div>
     )
 };

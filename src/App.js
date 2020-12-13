@@ -13,13 +13,10 @@ function App() {
       <Container>
           <Row>
               <Col>
-
                   <HeaderContainer />
-
                   <Route exact path='/' render={() => <MainPageContainer />}/>
                   <Route path='/cart' render={() => <Cart />}/>
                   <Route path='/wanted' render={() => <Wanted />}/>
-
               </Col>
           </Row>
       </Container>
