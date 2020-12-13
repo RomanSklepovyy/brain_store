@@ -5,23 +5,53 @@ const initialState = {
         books: [],
         availableBooks: 0
     },
-    processing: false
+    processing: false,
+    previousRequestOptions: {
+        searchQuery: 'Dnipro'
+    }
 };
 
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.GET_PRODUCTS_BY_CATEGORY_SUCCESS: {
-            console.log(action);
+        // case types.GET_PRODUCTS_BY_CATEGORY_SUCCESS: {
+        //     //console.log(action);
+        //     return {
+        //         ...state,
+        //         productsData: createBooksObjectData(action.result.data)
+        //         }
+        //     }
+        // case types.GET_PRODUCTS_BY_SEARCH_QUERY_SUCCESS: {
+        //     //console.log(action);
+        //     return {
+        //         ...state,
+        //         productsData: createBooksObjectData(action.result.data)
+        //     }
+        // }
+        // case types.ADD_PRODUCTS_BY_SEARCH_QUERY_SUCCESS: {
+        //     return {
+        //         ...state,
+        //         productsData: [...state.productsData, ...createBooksObjectData(action.result.data)]
+        //     }
+        // }
+        case types.GET_PRODUCTS_BY_OPTIONS_SUCCESS: {
             return {
                 ...state,
-                productsData: createBooksObjectData(action.result.data)
+                productsData: {
+                    books: [...state.productsData.books, ...createBooksObjectData(action.result.data).books],
+                    availableBooks: action.result.data.totalItems// - state.productsData.books.length
                 }
             }
-        case types.GET_PRODUCTS_BY_SEARCH_QUERY_SUCCESS: {
-            console.log(action);
+        }
+        case types.SET_PROCESSING_FALSE: {
             return {
                 ...state,
-                productsData: createBooksObjectData(action.result.data)
+                processing: false
+            }
+        }
+        case types.SET_PROCESSING_TRUE: {
+            return {
+                ...state,
+                processing: true
             }
         }
         default:
@@ -32,10 +62,9 @@ const productReducer = (state = initialState, action) => {
 const createBooksObjectData = (data) => {
 
     try {
-
         return {
             //books remain in server
-            availableBooks: data.totalItems - data.items.length,
+            availableBooks: data.totalItems,
 
             //books array
             books: data.items.map(item => {
@@ -83,7 +112,7 @@ const createBooksObjectData = (data) => {
         console.log('Error with creating books object data! \n', e);
         return null;
     }
-}
+};
 
 
 export default productReducer;

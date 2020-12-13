@@ -1,19 +1,22 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {getProductsByCategoryAction} from "../../redux/products/productsActions";
+import {getProductsByOptionsAction} from "../../redux/products/productsActions";
 import MainPage from "./MainPage";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-        books: state.products.productsData.books
+        books: state.products.productsData.books,
+        availableBooks: state.products.productsData.availableBooks,
+        processing: state.products.processing
     };
 };
-let mapDispatchToProps = (dispatch) => {
+
+const mapDispatchToProps = (dispatch, state) => {
     return {
-        getProductsByCategory: (category) => {
-            dispatch(getProductsByCategoryAction(category));
-        }
-    }
+        getProducts: () => {
+            dispatch(getProductsByOptionsAction())
+        },
+}
 };
 
 const MainPageContainer = connect(mapStateToProps, mapDispatchToProps)(MainPage);

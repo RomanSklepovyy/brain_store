@@ -14,8 +14,8 @@ const initialState = {
     'YOUNG ADULT NONFICTION'],
     sortType: 'relevance',
     printType: 'all',
-    isOnlyEbook: false,
-    ebookType: ''
+    ebookType: 'ebooks',
+    orderBy: 'relevance'
 };
 
 const filterReducer = (state = initialState, action) => {

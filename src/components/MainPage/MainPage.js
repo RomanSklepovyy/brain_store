@@ -4,17 +4,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 import BookList from "./BooksList/BookList";
 import FilterPanelContainer from "./FilterPanel/filterPanelContainer";
 
-const MainPage = (props) => (
+const MainPage = ({books, getProducts, getProductsByCategory, availableBooks, processing}) => {
+    return (
     <Container>
         <Row>
             <Col className='mt-2 p-0 pr-2' xs="3" style={{height: "90vh", maxHeight: "90vh"}}>
-                <FilterPanelContainer/>
+                <FilterPanelContainer getProductsByCategory = {getProductsByCategory}/>
             </Col>
             <Col className='mt-2 p-0' xs="9" style={{height: "90vh", maxHeight: "90vh"}}>
-                <BookList books={props.books}/>
+                <BookList books={books} getProducts={getProducts} processing={processing}
+                          availableBooks={availableBooks}/>
             </Col>
         </Row>
     </Container>
-);
+)};
 
 export default MainPage;

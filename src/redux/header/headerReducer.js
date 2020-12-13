@@ -2,6 +2,7 @@ import * as types from './headerActionTypes';
 
 const initialState = {
     searchField : '',
+    fieldToSearchIn: 'title'
 };
 
 const headerReducer = (state = initialState, action) => {

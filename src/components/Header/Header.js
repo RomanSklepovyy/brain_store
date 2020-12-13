@@ -14,7 +14,7 @@ const Header = (props) => {
 
     const onSearchEnter=(event)=> {
         if (event.keyCode === 13) {
-            props.getProductsBySearchQuery(event.target.value)
+            props.getProducts();
         }
     };
 

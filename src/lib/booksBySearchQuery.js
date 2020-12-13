@@ -1,7 +1,7 @@
 import API from './Api';
 
-const getBooksBySearchQuery = (text) => {
-    const url = `/volumes?q="${text}"&maxResults=21`;
+const getBooksBySearchQuery = (text, startIndex) => {
+    const url = `/volumes?q="${text}"&maxResults=21&startIndex=${startIndex}`;
     return API.get(url);
 };
 
