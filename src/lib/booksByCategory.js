@@ -1,8 +1,15 @@
 import API from './Api';
 
-const getBooksByCategory = (categoryName, startIndex) => {
-    const url = `/volumes?q=subject:${categoryName}&maxResults=21&startIndex=${startIndex}`;
-    return API.get(url);
-};
+export const getBooksByCategory = (options) => {
 
-export default getBooksByCategory;
+    return API.get('/volumes', {
+        params: {
+            q: `${options.fieldToSearchIn}:${options.searchQuery}`,
+            startIndex: options.startIndex,
+            maxResults: '21',
+            printType: options.printType,
+            orderBy: options.orderBy,
+            filter: options.ebook,
+        }
+    })
+};

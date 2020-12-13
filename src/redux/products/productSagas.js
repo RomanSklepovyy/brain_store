@@ -35,7 +35,7 @@ function *getProducts() {
     try {
         const state = yield select();
         const options = {
-            fieldToSearchIn: state.header.fieldToSearchIn,
+            fieldToSearchIn: state.header.fieldToSearchIn.replace(' ', '+'),
             searchQuery: state.header.searchField,
             startIndex: state.products.productsData.books.length,
             printType: state.filter.printType,

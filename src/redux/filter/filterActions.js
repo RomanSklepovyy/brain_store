@@ -9,5 +9,9 @@ export const updatePrintTypeAction = (payload) => {
 };
 
 export const updateEbookTypeAction = (payload) => {
-    return {type : types.UPDATE_PRINT_TYPE, payload};
+    return {type : types.UPDATE_EBOOK_TYPE, payload};
+};
+
+export const updateCategory = (payload) => {
+    return {type : types.UPDATE_CATEGORY, payload};
 };

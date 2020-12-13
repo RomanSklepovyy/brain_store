@@ -5,10 +5,7 @@ const initialState = {
         books: [],
         availableBooks: 0
     },
-    processing: false,
-    previousRequestOptions: {
-        searchQuery: 'Dnipro'
-    }
+    processing: false
 };
 
 const productReducer = (state = initialState, action) => {
@@ -34,6 +31,7 @@ const productReducer = (state = initialState, action) => {
         //     }
         // }
         case types.GET_PRODUCTS_BY_OPTIONS_SUCCESS: {
+            console.log(action.result);
             return {
                 ...state,
                 productsData: {
@@ -54,13 +52,21 @@ const productReducer = (state = initialState, action) => {
                 processing: true
             }
         }
+        case types.CLEAR_BOOKS: {
+            return {
+                ...state,
+                productsData: {
+                    books: [],
+                    availableBooks: 0
+                }
+            }
+        }
         default:
             return state;
     }
 };
 
 const createBooksObjectData = (data) => {
-
     try {
         return {
             //books remain in server

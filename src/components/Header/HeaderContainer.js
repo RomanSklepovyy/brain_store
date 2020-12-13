@@ -1,19 +1,22 @@
 import React from 'react';
-import {getUpdateSearchFieldAction} from "../../redux/header/headerActions";
+import {getUpdateSearchFieldAction, updateFieldToSearchInAction} from "../../redux/header/headerActions";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {getProductsByOptionsAction} from "../../redux/products/productsActions";
+import {clearBooksAction, getProductsByOptionsAction} from "../../redux/products/productsActions";
 
 let mapStateToProps = state => {
     return {
-        searchField: state.header.searchField
+        searchField: state.header.searchField,
+        fieldToSearchIn: state.header.fieldToSearchIn
     }
 };
 
 let mapDispatchToProps = dispatch => {
     return {
         updateSearchField: text => dispatch(getUpdateSearchFieldAction(text)),
-        getProducts: () => dispatch(getProductsByOptionsAction())
+        getProducts: () => dispatch(getProductsByOptionsAction()),
+        updateFieldToSearchIn: value => dispatch(updateFieldToSearchInAction(value)),
+        clearBooks: () => dispatch(clearBooksAction())
     }
 };
 

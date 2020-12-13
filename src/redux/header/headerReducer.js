@@ -2,7 +2,7 @@ import * as types from './headerActionTypes';
 
 const initialState = {
     searchField : '',
-    fieldToSearchIn: 'title'
+    fieldToSearchIn: 'intitle'
 };
 
 const headerReducer = (state = initialState, action) => {
@@ -11,6 +11,12 @@ const headerReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchField: action.payload
+            }
+        }
+        case types.UPDATE_FIELD_TO_SEARCH_IN: {
+            return {
+                ...state,
+                fieldToSearchIn: action.payload
             }
         }
         default:

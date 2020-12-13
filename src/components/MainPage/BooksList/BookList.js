@@ -7,15 +7,17 @@ const BookList = ({books, availableBooks, getProducts, processing}) => {
     const booksRemain = availableBooks-books.length;
     const observer = useRef();
     const lastBookElementRef = useCallback(node => {
+
         if (processing) return;
+
         if (observer.current) observer.current.disconnect();
+
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting && booksRemain) {
-                console.log('visible');
-                console.log(node);
                 getProducts();
             }
-        });
+        })
+        ;
         if (node) observer.current.observe(node)
     }, [processing, booksRemain]);
 

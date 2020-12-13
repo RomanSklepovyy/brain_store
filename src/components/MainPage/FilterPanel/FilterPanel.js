@@ -6,8 +6,8 @@ const FilterPanel = (props) => {
 
     return (
         <div className="mr-2 bg-light w-100 h-100 rounded ">
-            <Options props/>
-            <Categories categories = {props.filterData.categories}/>
+            <Options filterData={props}/>
+            <Categories categories = {props.categories} category={props.category} updateCategory={props.updateCategory} getProducts={props.getProducts}/>
         </div>
     )
 };

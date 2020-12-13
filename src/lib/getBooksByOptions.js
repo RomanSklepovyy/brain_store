@@ -1,8 +1,8 @@
-import Api from "./Api";
+import API from "./Api";
 
 export const getBooksByOptions = (options) => {
 
-    return Api.get('/volumes', {
+    return API.get('/volumes', {
         params: {
             q: `${options.fieldToSearchIn}:${options.searchQuery}`,
             startIndex: options.startIndex,

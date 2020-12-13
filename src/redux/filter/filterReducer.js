@@ -12,10 +12,10 @@ const initialState = {
     'PSYCHOLOGY', 'REFERENCE', 'RELIGION', 'SCIENCE', 'SELF-HELP', 'SOCIAL SCIENCE', 'SPORTS & RECREATION',
     'STUDY AIDS', 'TECHNOLOGY', 'ENGINEERING', 'TRANSPORTATION', 'TRAVEL', 'TRUE CRIME', 'YOUNG ADULT FICTION',
     'YOUNG ADULT NONFICTION'],
-    sortType: 'relevance',
     printType: 'all',
     ebookType: 'ebooks',
-    orderBy: 'relevance'
+    orderBy: 'relevance',
+    category: ''
 };
 
 const filterReducer = (state = initialState, action) => {
@@ -23,7 +23,7 @@ const filterReducer = (state = initialState, action) => {
         case types.UPDATE_ORDER_BY: {
             return {
                 ...state,
-                searchField: action.payload
+                orderBy: action.payload
             }
         }
         case types.UPDATE_PRINT_TYPE: {
@@ -36,7 +36,13 @@ const filterReducer = (state = initialState, action) => {
         case types.UPDATE_EBOOK_TYPE: {
             return {
                 ...state,
-                printType: action.payload
+                ebookType: action.payload
+            }
+        }
+        case types.UPDATE_CATEGORY: {
+            return {
+                ...state,
+                category: action.payload
             }
         }
         default:
