@@ -1,8 +1,7 @@
 import {takeLatest, call, put, all, select} from 'redux-saga/effects';
 import * as types from './productsActionTypes';
-import getBooksByCategory from '../../lib/booksByCategory';
-import getBooksBySearchQuery from "../../lib/booksBySearchQuery";
 import {getBooksByOptions} from "../../lib/getBooksByOptions";
+import createApiOptionsHelper from "./helpers/createApiOptionsHelper";
 
 // function *getProductsByCategory(action) {
 //     try {
@@ -34,15 +33,7 @@ import {getBooksByOptions} from "../../lib/getBooksByOptions";
 function *getProducts() {
     try {
         const state = yield select();
-        const options = {
-            fieldToSearchIn: state.header.fieldToSearchIn.replace(' ', '+'),
-            searchQuery: state.header.searchField,
-            startIndex: state.products.productsData.books.length,
-            printType: state.filter.printType,
-            orderBy: state.filter.orderBy,
-            ebook: state.filter.ebookType
-        };
-        const result = yield call(getBooksByOptions, options);
+        const result = yield call(getBooksByOptions, createApiOptionsHelper(state));
         yield put({type: types.GET_PRODUCTS_BY_OPTIONS_SUCCESS, result: result});
     } catch (e) {
         console.log(e);

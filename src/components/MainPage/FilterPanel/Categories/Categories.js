@@ -2,7 +2,7 @@ import React from "react";
 import {Badge} from "reactstrap";
 
 const Categories = ({categories, category, updateCategory}) => {
-    const onClickHandle = (e) => updateCategory(e.target.textContent);
+    const onClickHandle = (e) => category === e.target.textContent ? updateCategory('') : updateCategory(e.target.textContent);
 
     return (
         <>
@@ -11,10 +11,10 @@ const Categories = ({categories, category, updateCategory}) => {
                 maxHeight: "70vh", msFlexDirection: "row",
                 msFlexWrap: "wrap", display: "flex", flexDirection: "row", flexWrap: "wrap"
             }}>
-                {categories.map((category, index) => (
+                {categories.map((categoryElement, index) => (
                     <div className="pl-1" key={index}>
-                        <Badge color="secondary" pill className="text-lowercase" style={{cursor: 'pointer'}} onClick={onClickHandle}>
-                            {category}
+                        <Badge color={category === categoryElement ? "success" : "secondary"} pill className="text-lowercase" style={{cursor: 'pointer'}} onClick={onClickHandle}>
+                            {categoryElement}
                         </Badge>
                     </div>
                 ))}

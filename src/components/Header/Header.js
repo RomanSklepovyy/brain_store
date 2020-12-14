@@ -32,7 +32,7 @@ const Header = ({searchField, fieldToSearchIn, getProducts, updateSearchField, u
 
     return (
     <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="light" light expand="md" className="mt-2">
             <NavbarBrand href="/">Brain <Badge color="secondary">Shop</Badge> </NavbarBrand>
                 <Input placeholder="Search" value={searchField} onKeyDown={onSearchEnter} onChange={onSearchFieldChange}/>
 
