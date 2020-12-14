@@ -2,7 +2,7 @@ const createApiOptionsHelper = ({products, filter , header}) => {
 
     let options = {
         fieldToSearchIn: header.fieldToSearchIn,
-        searchQuery: header.searchField.replace(' ', '+'),
+        searchQuery: header.searchField ? header.searchField.replace(' ', '+') : '""',
         startIndex: products.productsData.books.length,
         printType: filter.printType,
         orderBy: filter.orderBy,

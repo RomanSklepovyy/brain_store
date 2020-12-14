@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {getProductsByOptionsAction} from "../../redux/products/productsActions";
 import MainPage from "./MainPage";
-import {addBookToWanted} from "../../redux/wanted/wantedActions";
+import {addBookToWantedAction} from "../../redux/wanted/wantedActions";
 import {addBookToCartAction} from "../../redux/cart/cartActions";
 
 const mapStateToProps = (state) => {
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getProducts: () => dispatch(getProductsByOptionsAction()),
-        addToWanted: (id) => dispatch(addBookToWanted(id)),
+        addToWanted: (id) => dispatch(addBookToWantedAction(id)),
         addToCart: (id) => dispatch(addBookToCartAction(id))
     }
 };

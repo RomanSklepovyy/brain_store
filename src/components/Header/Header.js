@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import {Badge, Input, Navbar, NavbarBrand} from 'reactstrap';
+import {Badge, Input, Navbar, NavbarBrand, NavbarText} from 'reactstrap';
 import {Link} from "react-router-dom";
 import {Cart, BookmarkHeart} from 'react-bootstrap-icons';
 
@@ -32,7 +32,9 @@ const Header = ({searchField, fieldToSearchIn, getProducts, updateSearchField, u
     return (
     <div>
         <Navbar color="light" light expand="md" className="mt-2">
-            <NavbarBrand href="/">Brain <Badge color="secondary">Shop</Badge> </NavbarBrand>
+            <Link to="/">
+                <NavbarText className="h5 d-flex flex-row mt-auto mb-auto mr-3 text-dark">Brain <Badge className="ml-1 h1" color="secondary" >Shop</Badge></NavbarText>
+            </Link>
                 <Input placeholder="Search" value={searchField} onKeyDown={onSearchEnter} onChange={onSearchFieldChange}/>
 
                 <Input type="select" value = {fieldToSearchIn} onChange={onTypeSearchChange} className='w-25 ml-2'>

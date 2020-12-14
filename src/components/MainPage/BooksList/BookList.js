@@ -29,35 +29,41 @@ const BookList = ({books, availableBooks, getProducts, processing, addToCart, ad
 
                         if (books.length === index + 1) {
                             return (
-                            <div key={index} ref={lastBookElementRef} className="col-4 p-2">
-                                <div style={{height: '200px', cursor: 'pointer'}}
-                                     className="border rounded overflow-hidden shadow-sm d-flex flex-row">
-                                    <div className="p-4 d-flex flex-column position-static">
-                                        <strong
-                                            className="d-inline-block mb-2 text-primary">{categories ? categories[0] : ''}</strong>
-                                        <h6 className="mb-1">{title}</h6>
-                                    </div>
-                                    <div className="d-block">
-                                        <img className="bd-placeholder-img h-100" src={normalImage}
-                                             alt="Image unavailable"/>
-                                    </div>
-                                </div>
-                                <BookCardPriceBlock data={{saleability, price, currencyCode}}/>
-                            </div>)
-                        } else {
-                             return (
-                                <div key={index}  className="col-4 p-2">
-                                    <div style={{height: '200px', cursor: 'pointer'}} className="border rounded overflow-hidden shadow-sm d-flex flex-row">
+                                <div key={index} ref={lastBookElementRef} className="col-4 p-2">
+                                    <div style={{height: '200px', cursor: 'pointer'}}
+                                         className="border rounded overflow-hidden shadow-sm d-flex flex-row">
                                         <div className="p-4 d-flex flex-column position-static">
-                                            <strong className="d-inline-block mb-2 text-primary">{categories ? categories[0] : ''}</strong>
+                                            <strong
+                                                className="d-inline-block mb-2 text-primary">{categories ? categories[0] : ''}</strong>
                                             <h6 className="mb-1">{title}</h6>
                                         </div>
                                         <div className="d-block">
-                                            <img className="bd-placeholder-img h-100" src={normalImage} alt="Image unavailable"/>
+                                            <img className="bd-placeholder-img h-100" src={normalImage}
+                                                 alt="Image unavailable"/>
                                         </div>
                                     </div>
-                                    <BookCardPriceBlock data = {{saleability, price, currencyCode, id, addToCart, addToWanted}}/>
-                                </div>)}
+                                    <BookCardPriceBlock data={{saleability, price, currencyCode}}/>
+                                </div>)
+                        } else {
+                            return (
+                                <div key={index} className="col-4 p-2">
+                                    <div style={{height: '200px', cursor: 'pointer'}}
+                                         className="border rounded overflow-hidden shadow-sm d-flex flex-row">
+                                        <div className="p-4 d-flex flex-column position-static">
+                                            <strong
+                                                className="d-inline-block mb-2 text-primary">{categories ? categories[0] : ''}</strong>
+                                            <h6 className="mb-1">{title}</h6>
+                                        </div>
+                                        <div className="d-block">
+                                            <img className="bd-placeholder-img h-100" src={normalImage}
+                                                 alt="Image unavailable"/>
+                                        </div>
+                                    </div>
+                                    <BookCardPriceBlock data={{saleability, price, currencyCode, id}}
+                                                        addToCart={addToCart} addToWanted={addToCart}/>
+                                </div>
+                            )
+                        }
                     })}
                 </div>
             </div>

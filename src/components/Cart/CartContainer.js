@@ -1,17 +1,21 @@
-import {changeBooksAmountAction, deleteBookFromCartAction} from "../../redux/cart/cartActions";
+import {calculateFinalPriceAction, changeBookAmountAction, deleteBookFromCartAction} from "../../redux/cart/cartActions";
 import {connect} from "react-redux";
 import Cart from "./Cart";
+import {addBookToWantedAction} from "../../redux/wanted/wantedActions";
 
 const mapStateToProps = state => {
     return {
-        books: state.cart.books
+        books: state.cart.books,
+        finalPrice: state.cart.finalPrice
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         deleteBook: (id) => dispatch(deleteBookFromCartAction(id)),
-        changeAmount: (id, amount) => dispatch(changeBooksAmountAction(id, amount))
+        changeAmount: (id, amount) => dispatch(changeBookAmountAction(id, amount)),
+        addToWanted: (id) => dispatch(addBookToWantedAction(id)),
+        calculatePrice: () => dispatch(calculateFinalPriceAction())
     }
 };
 

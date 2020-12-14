@@ -4,7 +4,7 @@ export const getProductsByOptionsAction = () => ({type : types.GET_PRODUCTS_BY_O
 
 export const clearBooksAction = () => ({type : types.CLEAR_BOOKS});
 
-export const setProcessingFalse = () => ({type: types.SET_PROCESSING_FALSE});
+export const setProcessingFalseAction = () => ({type: types.SET_PROCESSING_FALSE});
 
-export const setProcessingTrue = () =>( {type: types.SET_PROCESSING_TRUE});
+export const setProcessingTrueAction = () =>( {type: types.SET_PROCESSING_TRUE});
 

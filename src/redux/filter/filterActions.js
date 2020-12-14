@@ -12,6 +12,6 @@ export const updateEbookTypeAction = (payload) => {
     return {type : types.UPDATE_EBOOK_TYPE, payload};
 };
 
-export const updateCategory = (payload) => {
+export const updateCategoryAction = (payload) => {
     return {type : types.UPDATE_CATEGORY, payload};
 };

@@ -1,11 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {
-    updateCategory,
-    updateEbookTypeAction,
-    updateOrderByAction,
-    updatePrintTypeAction
-} from "../../../redux/filter/filterActions";
+import {updateCategoryAction, updateEbookTypeAction, updateOrderByAction, updatePrintTypeAction} from "../../../redux/filter/filterActions";
 import FilterPanel from "./FilterPanel";
 import {clearBooksAction, getProductsByOptionsAction} from "../../../redux/products/productsActions";
 
@@ -24,7 +19,7 @@ let mapDispatchToProps = (dispatch) => {
         updateOrderBy: (sortType) => dispatch(updateOrderByAction(sortType)),
         updatePrintType: (printType) => dispatch(updatePrintTypeAction(printType)),
         updateEbookType: (ebookType) => dispatch(updateEbookTypeAction(ebookType)),
-        updateCategory: (category) => dispatch(updateCategory(category)),
+        updateCategory: (category) => dispatch(updateCategoryAction(category)),
         getProducts: () => dispatch(getProductsByOptionsAction()),
         clearBooks: () => dispatch(clearBooksAction())
 
