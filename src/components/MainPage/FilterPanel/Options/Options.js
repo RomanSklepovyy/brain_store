@@ -41,7 +41,7 @@ const Options = (props) => {
             <div className="m-2 d-flex flex-row">
                 <h6>Print type:</h6>
 
-                <Button className="btn-sm p-1 ml-2 mr-2" value="magazines"
+                <Button className="btn-sm p-1 ml-2 mr-2" value="magazines" disabled
                         onClick={onPrintTypeChange} active={printType === 'magazines'}
                         color="secondary">magazines</Button>
 
@@ -57,15 +57,15 @@ const Options = (props) => {
             <div className="m-2 mb-3 d-flex flex-row">
                 <h6>Ebook:</h6>
 
-                <Button className="btn-sm p-1 ml-2 mr-2" value="free-ebooks"
+                <Button className="btn-sm p-1 ml-2 mr-2" value="free-ebooks" disabled
                         onClick={onEbookTypeUpdate} active={ebookType === 'free-ebooks'}
                         color="secondary">free</Button>
 
-                <Button className="btn-sm p-1" value="paid-ebooks"
+                <Button className="btn-sm p-1" value="paid-ebooks" disabled
                         onClick={onEbookTypeUpdate} active={ebookType === 'paid-ebooks'}
                         color="secondary">paid</Button>
 
-                <Button className="btn-sm p-1 ml-2 mr-2" value="ebooks"
+                <Button className="btn-sm p-1 ml-2 mr-2" value="ebooks" disabled
                         onClick={onEbookTypeUpdate} active={ebookType === 'ebooks'}
                         color="secondary">all</Button>
             </div>

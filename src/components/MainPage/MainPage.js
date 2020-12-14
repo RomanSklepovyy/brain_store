@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import BookList from "./BooksList/BookList";
 import FilterPanelContainer from "./FilterPanel/filterPanelContainer";
 
-const MainPage = ({books, getProducts, getProductsByCategory, availableBooks, processing}) => {
+const MainPage = ({books, getProducts, getProductsByCategory,
+                      availableBooks, processing, addToWanted, addToCart}) => {
     return (
     <Container>
         <Row>
@@ -13,7 +14,7 @@ const MainPage = ({books, getProducts, getProductsByCategory, availableBooks, pr
             </Col>
             <Col className='mt-2 p-0' xs="9" style={{height: "90vh", maxHeight: "90vh"}}>
                 <BookList books={books} getProducts={getProducts} processing={processing}
-                          availableBooks={availableBooks}/>
+                          availableBooks={availableBooks} addToWanted={addToWanted} addToCart={addToCart}/>
             </Col>
         </Row>
     </Container>

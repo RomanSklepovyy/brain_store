@@ -13,10 +13,8 @@ const Header = ({searchField, fieldToSearchIn, getProducts, updateSearchField, u
         if (isInitialMount.current) {
             isInitialMount.current = false;
         } else {
-            setTimeout(() => {
-                clearBooks();
-                getProducts();
-            }, 1000);
+            //clearBooks();
+            //getProducts();
         }
     });
 
@@ -26,6 +24,7 @@ const Header = ({searchField, fieldToSearchIn, getProducts, updateSearchField, u
 
     const onSearchEnter=(event)=> {
         if (event.keyCode === 13) {
+            clearBooks();
             getProducts();
         }
     };

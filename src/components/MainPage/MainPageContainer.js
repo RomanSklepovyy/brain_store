@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from "react-redux";
 import {getProductsByOptionsAction} from "../../redux/products/productsActions";
 import MainPage from "./MainPage";
+import {addBookToWanted} from "../../redux/wanted/wantedActions";
+import {addBookToCartAction} from "../../redux/cart/cartActions";
 
 const mapStateToProps = (state) => {
     return {
@@ -11,12 +13,12 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch, state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        getProducts: () => {
-            dispatch(getProductsByOptionsAction())
-        },
-}
+        getProducts: () => dispatch(getProductsByOptionsAction()),
+        addToWanted: (id) => dispatch(addBookToWanted(id)),
+        addToCart: (id) => dispatch(addBookToCartAction(id))
+    }
 };
 
 const MainPageContainer = connect(mapStateToProps, mapDispatchToProps)(MainPage);

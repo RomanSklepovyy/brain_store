@@ -1,8 +1,7 @@
 import React, {useRef, useCallback, useState} from "react";
-import BookCardPriceBlock from "./BookCard/BookCardPriceBlock";
-import useBookSearch from "./useBookSearch";
+import BookCardPriceBlock from "./BookCardPriceBlock";
 
-const BookList = ({books, availableBooks, getProducts, processing}) => {
+const BookList = ({books, availableBooks, getProducts, processing, addToCart, addToWanted}) => {
 
     const booksRemain = availableBooks-books.length;
     const observer = useRef();
@@ -16,9 +15,10 @@ const BookList = ({books, availableBooks, getProducts, processing}) => {
             if (entries[0].isIntersecting && booksRemain) {
                 getProducts();
             }
-        })
-        ;
-        if (node) observer.current.observe(node)
+        });
+
+        if (node) observer.current.observe(node);
+
     }, [processing, booksRemain]);
 
     return (
@@ -56,7 +56,7 @@ const BookList = ({books, availableBooks, getProducts, processing}) => {
                                             <img className="bd-placeholder-img h-100" src={normalImage} alt="Image unavailable"/>
                                         </div>
                                     </div>
-                                    <BookCardPriceBlock data = {{saleability, price, currencyCode}}/>
+                                    <BookCardPriceBlock data = {{saleability, price, currencyCode, id, addToCart, addToWanted}}/>
                                 </div>)}
                     })}
                 </div>
