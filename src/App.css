@@ -22,3 +22,16 @@
     width: 0;
 }
 
+.no-decoration {
+    text-decoration: none;
+}
+
+.text-link:focus, .text-link:hover, .text-link:visited, .text-link:link, .text-link:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.text-link {
+    color: inherit;
+    text-decoration: none;
+}

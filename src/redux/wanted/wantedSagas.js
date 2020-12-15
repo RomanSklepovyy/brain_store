@@ -5,11 +5,13 @@ function *addBook(action) {
     try {
         const state = yield select();
 
-        const book = state.products.productsData.books.find(book => book.id === action.id);
-        if(!book) state.products.cart.books.find(book => book.id === action.id);
+        const book = [...state.products.productsData.books, ...state.cart.books].find(book => book.id === action.id);
         if (!book) throw new Error('Book doesnt exist!');
 
-        yield put({type: types.ADD_BOOK_TO_WANTED_SUCCESS, book});
+        state.wanted.books.find(book => book.id === action.id)
+            ? yield put({type: types.DELETE_BOOK_FROM_WANTED, id: book.id})
+            : yield put({type: types.ADD_BOOK_TO_WANTED_SUCCESS, book});
+
 
     } catch (e) {
         console.log(e);
