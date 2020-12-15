@@ -14,7 +14,7 @@ function *addBook(action) {
 
 
     } catch (e) {
-        console.log(e);
+        //console.log(e);
     }
 }
 

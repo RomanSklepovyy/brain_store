@@ -12,7 +12,7 @@ function *addBook(action) {
 
         bookInCart ? yield put({type: types.CHANGE_BOOK_AMOUNT, amount: 1, id : bookInCart.id}) : yield put({type: types.ADD_BOOK_TO_CART_SUCCESS, book});
     } catch (e) {
-        console.log(e);
+        //console.log(e);
     }
 }
 

@@ -18,6 +18,7 @@ const Cart = ({books, addToWanted, changeAmount, deleteBook, finalPrice, calcula
     };
 
     const onButtonDelete = (e) => {
+        e.stopPropagation();
         const button = e.target.closest('button');
         deleteBook(button.value);
     };

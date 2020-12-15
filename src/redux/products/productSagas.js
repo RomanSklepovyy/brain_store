@@ -23,7 +23,7 @@ function *getProduct(action) {
         if (!book) throw new Error('Book doesnt exist!');
         yield put({type: types.GET_OPENED_PRODUCT_SUCCESS, book});
     } catch (e) {
-        console.log(e);
+        //console.log(e);
         yield put({type: types.API_ERROR});
     }
 }
