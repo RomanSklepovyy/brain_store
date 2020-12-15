@@ -5,20 +5,6 @@ const BookCardPriceBlock = (props) => {
 
     let {saleability, price, currencyCode, id} = props.data;
 
-    const getAuthors = authors => {
-        if (authors) {
-            return (
-                <div>
-                    {authors.map(author => (<p>{author}</p>))}
-                </div>
-            )
-        } else {
-            return (
-                <p>Unknown authors</p>
-            )
-        }
-    };
-
     const handleClickOnAddToWanted = (e) => {
         const button = e.target.closest('button');
         props.addToWanted(button.value);

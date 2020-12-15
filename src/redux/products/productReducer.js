@@ -6,7 +6,8 @@ const initialState = {
         books: [],
         availableBooks: 0
     },
-    processing: false
+    processing: false,
+    openedBook: {}
 };
 
 const productReducer = (state = initialState, action) => {
@@ -40,6 +41,12 @@ const productReducer = (state = initialState, action) => {
                     books: [],
                     availableBooks: 0
                 }
+            }
+        }
+        case types.GET_OPENED_PRODUCT_SUCCESS: {
+            return {
+                ...state,
+                openedBook:  action.book
             }
         }
         default:

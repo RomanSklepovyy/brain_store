@@ -1,6 +1,7 @@
 import React, {useRef, useCallback, useState} from "react";
 import BookCardPriceBlock from "./BookCardPriceBlock";
 import {Link} from "react-router-dom";
+import {Alert} from "reactstrap";
 
 const BookList = ({books, availableBooks, getProducts, processing, addToCart, addToWanted}) => {
 
@@ -22,11 +23,6 @@ const BookList = ({books, availableBooks, getProducts, processing, addToCart, ad
 
     }, [processing, booksRemain]);
 
-    const onBookClick = (e) => {
-        const container = e.target.closest('div');
-        console.log(container.parentElement.dataset.id);
-    };
-
     return (
         <div className="bg-light w-100 h-100 overflow-auto rounded p-4 ">
             <div className="container-fluid ">
@@ -36,7 +32,7 @@ const BookList = ({books, availableBooks, getProducts, processing, addToCart, ad
                         if (books.length === index + 1) {
                             return (
                                 <div key={index} ref={lastBookElementRef} className="col-4 p-2">
-                                    <Link className="text-link" to={'/' + id}>
+                                    <Link className="text-link" to={'/bookInfo/' + id}>
                                         <div style={{height: '200px', cursor: 'pointer'}}
                                              className="border rounded overflow-hidden shadow-sm d-flex flex-row">
                                             <div className="p-4 d-flex flex-column position-static">
@@ -54,7 +50,7 @@ const BookList = ({books, availableBooks, getProducts, processing, addToCart, ad
                         } else {
                             return (
                                 <div key={index} className="col-4 p-2">
-                                    <Link className="text-link" to={'/' + id}>
+                                    <Link className="text-link" to={'/bookInfo/' + id}>
                                         <div style={{height: '200px', cursor: 'pointer'}}
                                              className="border rounded overflow-hidden shadow-sm d-flex flex-row">
                                             <div className="p-4 d-flex flex-column position-static ">
@@ -74,6 +70,11 @@ const BookList = ({books, availableBooks, getProducts, processing, addToCart, ad
                         }
                     })}
                 </div>
+                {processing &&
+                <Alert color="secondary">
+                    Wain a moment!
+                </Alert>
+                }
             </div>
         </div>
     )

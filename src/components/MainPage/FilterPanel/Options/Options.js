@@ -5,7 +5,7 @@ const Options = (props) => {
 
     let {updateOrderBy, updatePrintType, updateEbookType, printType, ebookType, orderBy, getProducts, clearBooks} = props.filterData;
 
-    const onSortingChange = (e) => updateOrderBy(e.target.value);
+    const onSortingChange = e => updateOrderBy(e.target.value);
 
     const onPrintTypeChange = e => updatePrintType(e.target.value);
 
