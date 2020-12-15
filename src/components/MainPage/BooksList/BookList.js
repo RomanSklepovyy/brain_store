@@ -72,7 +72,7 @@ const BookList = ({books, availableBooks, getProducts, processing, addToCart, ad
                 </div>
                 {processing &&
                 <Alert color="secondary">
-                    Wain a moment!
+                    Wait a moment!
                 </Alert>
                 }
             </div>

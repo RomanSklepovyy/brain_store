@@ -20,7 +20,7 @@ const Options = (props) => {
             clearBooks();
             getProducts();
         }
-    });
+    }, [printType, ebookType, orderBy]);
 
     return (
         <div>

@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Badge} from "reactstrap";
 
-const Categories = ({categories, category, updateCategory}) => {
+const Categories = ({categories, category, updateCategory, getProducts, clearBooks}) => {
     const onClickHandle = (e) => category === e.target.textContent ? updateCategory('') : updateCategory(e.target.textContent);
+
+    useEffect(() => {
+        clearBooks();
+        getProducts();
+    }, [category]);
 
     return (
         <div className="m-4">

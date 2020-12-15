@@ -13,7 +13,6 @@ const initialState = {
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.GET_PRODUCTS_BY_OPTIONS_SUCCESS: {
-            console.log(action.result);
             return {
                 ...state,
                 productsData: {

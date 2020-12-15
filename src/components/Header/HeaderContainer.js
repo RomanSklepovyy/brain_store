@@ -6,7 +6,8 @@ import {clearBooksAction, getProductsByOptionsAction} from "../../redux/products
 const mapStateToProps = state => {
     return {
         searchField: state.header.searchField,
-        fieldToSearchIn: state.header.fieldToSearchIn
+        fieldToSearchIn: state.header.fieldToSearchIn,
+        processing: state.products.processing
     }
 };
 

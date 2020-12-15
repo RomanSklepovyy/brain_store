@@ -11,7 +11,8 @@ let mapStateToProps = (state) => {
         orderBy,
         printType,
         ebookType,
-        category
+        category,
+        booksAmount: state.products.productsData.books.length
     };
 };
 let mapDispatchToProps = (dispatch) => {
